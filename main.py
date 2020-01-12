@@ -46,42 +46,44 @@ def predict(text, include_neutral=True):
         "score": float(score)}
 
 
-@app.route('/getSentiment')
-def getSentiment():
-    data = {"success": False}
-    # if parameters are found, echo the msg parameter
-    if (request.get_json() != None):
-        with graph.as_default():
-            data["predictions"] = predict(request.get_data())
-        data["success"] = True
-    return JsonResponse(data)
-
-@app.route('/analyzeHashtag')
-def analyzeHashtag():
-    positive = 0
-    neutral = 0
-    negative = 0
-    for tweet in tweepy.Cursor(api.search,q="#" + request.get_data() + " -filter:retweets",rpp=5,lang="en", tweet_mode='extended').items(100):
-        with graph.as_default():
-            prediction = predict(tweet.full_text)
-        if(prediction["label"] == "Positive"):
-            positive += 1
-        if(prediction["label"] == "Neutral"):
-            neutral += 1
-        if(prediction["label"] == "Negative"):
-            negative += 1
-    return JsonResponse({"positive": positive, "neutral": neutral, "negative": negative});
+# @app.route('/getSentiment')
+# def getSentiment():
+#     data = {"success": False}
+#     # if parameters are found, echo the msg parameter
+#     if (request.get_json() != None):
+#         with graph.as_default():
+#             data["predictions"] = predict(request.get_data())
+#         data["success"] = True
+#     return jsonify(data)
+#
+# @app.route('/analyzeHashtag')
+# def analyzeHashtag():
+#     positive = 0
+#     neutral = 0
+#     negative = 0
+#     for tweet in tweepy.Cursor(api.search,q="#" + request.get_data().decode("utf-8") + " -filter:retweets",rpp=5,lang="en", tweet_mode='extended').items(100):
+#         with graph.as_default():
+#             prediction = predict(tweet.full_text)
+#         if(prediction["label"] == "Positive"):
+#             positive += 1
+#         if(prediction["label"] == "Neutral"):
+#             neutral += 1
+#         if(prediction["label"] == "Negative"):
+#             negative += 1
+#     return jsonify({"positive": positive, "neutral": neutral, "negative": negative});
 
 @app.route('/getTweets')
 def getTweets():
-    tweets = []
-    for tweet in tweepy.Cursor(api.search,q="#" + request.get_data()+ " -filter:retweets",rpp=5,lang="en", tweet_mode='extended').items(50):
-        temp = {}
-        temp["text"] = tweet.full_text
-        temp["username"] = tweet.user.screen_name
-        with graph.as_default():
-            prediction = predict(tweet.full_text)
-        temp["label"] = prediction["label"]
-        temp["score"] = prediction["score"]
-        tweets.append(temp)
-    return JsonResponse({"results": tweets});
+    return jsonify("result":"result")
+    # tweets = []
+    # for tweet in tweepy.Cursor(api.search,q="#" + request.get_data().decode("utf-8")+ " -filter:retweets",rpp=5,lang="en", tweet_mode='extended').items(50):
+    #     temp = {}
+    #     temp["text"] = tweet.full_text
+    #     temp["username"] = tweet.user.screen_name
+    # return jsonify({"results": tweet.full_text})
+    #     with graph.as_default():
+    #         prediction = predict(tweet.full_text)
+    #     temp["label"] = prediction["label"]
+    #     temp["score"] = prediction["score"]
+    #     tweets.append(temp)
+    # return jsonify({"results": tweets});
