@@ -74,7 +74,7 @@ def predict(text, include_neutral=True):
 
 @app.route('/getTweets')
 def getTweets():
-    return jsonify("result":"result")
+    return jsonify(results = 2)
     # tweets = []
     # for tweet in tweepy.Cursor(api.search,q="#" + request.get_data().decode("utf-8")+ " -filter:retweets",rpp=5,lang="en", tweet_mode='extended').items(50):
     #     temp = {}
