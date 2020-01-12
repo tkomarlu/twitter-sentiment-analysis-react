@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans&display=swap');
+
+body{
+  background-color: #f9f9f9;
+}
+
+.hashtag{
+  border: none;
+  border-radius: 5px;
+  box-shadow: 3px 3px 8px 0px #c1c1c1;
+}
+
+.hashtag:focus{
+  border: none;
+  box-shadow: none;
+  box-shadow: 1px 1px 3px 0px #c1c1c1;
+}
+
+.hashtag-icon{
+  border: none;
+  border-radius: 0px;
+  font-size: 16px;
+  font-family: 'PT Sans', sans-serif;
+  box-shadow: 3px 3px 8px 0px #c1c1c1;
+}
+
+.submit{
+  background-color: #00aced;
+  border: none;
+  border-radius: 0px;
+  color: white;
+  font-size: 16px;
+  padding: 8px 20px;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.submit:hover{
+  background-color: #0084b4;
+}
+
+.submit:active{
+  border: none;
+  box-shadow: none;
+  background-color: #0084b4;
+}
+
+.tweets{
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 3px 3px 8px 0px #ededed;
+  padding: 5px 15px;
+  margin-bottom: 20px;
+}
+
+.tweets h2{
+  color: #0084b4;
+  font-size: 16px;
+}
+
+.tweets h3{
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.footer{
+  background-color: #f9f9f9;
+  height: 40px;
+  width: 100%;
+  padding: 8px 0px 0px 0px;
+  position: fixed;
+  bottom: 0px;
+  text-align: center;
+}
+
+.progressDots {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #00bbed;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.heading_desc{
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 300;
+  opacity: 0.6;
+}
