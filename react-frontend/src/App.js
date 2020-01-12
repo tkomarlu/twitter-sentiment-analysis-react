@@ -35,7 +35,7 @@ class App extends Component{
                         position: 'top',
                         maxItems: 3,
                         hideOverflowingLabels: true,
-                        orientation: horizontal
+                        orientation: 'horizontal'
                     }
                 },
                 series: [42, 42, 42],
@@ -53,7 +53,7 @@ class App extends Component{
         
         try {
             setInterval(async () => {
-                axios.get('http://localhost:8000/gettweets', {
+                axios.get('http://localhost:5000/analyzeHashtag', {
                     params: {
                         text:this.state.hashtag
                     }
@@ -70,7 +70,7 @@ class App extends Component{
         }
         try {
             setInterval(async () => {
-                axios.get('http://localhost:8000/gettweets', {
+                axios.get('http://localhost:5000/getTweets', {
                     params: {
                         text:this.state.hashtag
                     }
@@ -92,7 +92,7 @@ class App extends Component{
         var self = this;
 
         try {
-            axios.get('http://localhost:8000/gettweets', {
+            axios.get('http://localhost:5000/analyzeHashtag', {
                 params: {
                     text:this.state.hashtag
                 }
@@ -116,7 +116,7 @@ class App extends Component{
         }
         try {
             setInterval(async () => {
-                axios.get('http://localhost:8000/gettweets', {
+                axios.get('http://localhost:5000/getTweets', {
                     params: {
                         text:this.state.hashtag
                     }

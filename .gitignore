@@ -1,4 +1,7 @@
 *.csv
+
+Sentiment_LSTM_model.h5
+
 # Django #
 *.log
 *.pot
