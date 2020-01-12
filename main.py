@@ -47,7 +47,7 @@ def predict(text, include_neutral=True):
 
 
 @app.route('/getSentiment')
-def getsentiment(request):
+def getSentiment():
     data = {"success": False}
     # if parameters are found, echo the msg parameter
     if (request.get_json() != None):
@@ -56,8 +56,8 @@ def getsentiment(request):
         data["success"] = True
     return JsonResponse(data)
 
-@app.route('/getTweets')
-def analyzehashtag(request):
+@app.route('/analyzeHashtag')
+def analyzeHashtag():
     positive = 0
     neutral = 0
     negative = 0
@@ -72,8 +72,8 @@ def analyzehashtag(request):
             negative += 1
     return JsonResponse({"positive": positive, "neutral": neutral, "negative": negative});
 
-@app.route('/analyzeHashtag')
-def gettweets(request):
+@app.route('/getTweets')
+def getTweets():
     tweets = []
     for tweet in tweepy.Cursor(api.search,q="#" + request.get_data()+ " -filter:retweets",rpp=5,lang="en", tweet_mode='extended').items(50):
         temp = {}

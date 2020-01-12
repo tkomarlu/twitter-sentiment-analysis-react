@@ -161,24 +161,6 @@ class App extends Component{
         }
     }
     render() {
-        var renderTweets  = this.state.tweets.map(function (item, i) {
-            var color = "#29bf58";
-
-            if(item.label == "Neutral"){
-                color = "#fdba5e";
-            }
-            if(item.label == "Negative"){
-                color = "#f74d4d";
-            }
-
-            return (
-                <div key={i} className="tweets">
-                    <h2>@{item.username}</h2>
-                    <p>{item.text}</p>
-                    <h3 style={{"color" : color}}> Predicted Sentiment - {item.label}</h3>
-                </div>
-            );
-        })
 
         return(
             <div>
@@ -206,6 +188,25 @@ class App extends Component{
                 </div>
             </div>
         );
+            var renderTweets = this.state.tweets.map(function (item, i) {
+                var color = "#29bf58";
+
+                if (item.label == "Neutral") {
+                    color = "#fdba5e";
+                }
+                if (item.label == "Negative") {
+                    color = "#f74d4d";
+                }
+
+                return (
+                    <div key={i} className="tweets">
+                        <h2>@{item.username}</h2>
+                        <p>{item.text}</p>
+                        <h3 style={{"color": color}}> Predicted Sentiment - {item.label}</h3>
+                    </div>
+                );
+            });
+        
     }
 }
 export default App;
