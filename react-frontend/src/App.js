@@ -53,7 +53,7 @@ class App extends Component{
         
         try {
             setInterval(async () => {
-                axios.get('http://localhost:5000/analyzeHashtag', {
+                axios.get('http://localhost:8000/analyzehashtag', {
                     params: {
                         text:this.state.hashtag
                     }
@@ -70,7 +70,7 @@ class App extends Component{
         }
         try {
             setInterval(async () => {
-                axios.get('http://localhost:5000/getTweets', {
+                axios.get('http://localhost:8000/gettweets', {
                     params: {
                         text:this.state.hashtag
                     }
@@ -92,7 +92,7 @@ class App extends Component{
         var self = this;
 
         try {
-            axios.get('http://localhost:5000/analyzeHashtag', {
+            axios.get('http://localhost:8000/analyzehashtag', {
                 params: {
                     text:this.state.hashtag
                 }
@@ -116,7 +116,7 @@ class App extends Component{
         }
         try {
             setInterval(async () => {
-                axios.get('http://localhost:5000/getTweets', {
+                axios.get('http://localhost:8000/gettweets', {
                     params: {
                         text:this.state.hashtag
                     }
@@ -206,7 +206,7 @@ class App extends Component{
                     </div>
                 );
             });
-        
+
     }
 }
 export default App;
